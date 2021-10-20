@@ -1,9 +1,10 @@
-var net = require('net');
+let net = require('net');
 
-var server = net.createServer(function (socket) {
+let server = net.createServer(function (socket) {
     //socket.write('Echo server\n');
     socket.on('data', function (data) {
-        socket.write(data);
+        //socket.write(data);
+        console.log(data.toString());
     });
     socket.on('end', socket.end);
 });
