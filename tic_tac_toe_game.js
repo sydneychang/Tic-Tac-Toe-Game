@@ -19,6 +19,7 @@ class TicTacToeGame {
 
     displayGameBoard() {
         this.gameBoard.forEach((value) => console.log(value));
+        console.log("\n");
     }
 
     updateGameBoard(input) {
@@ -28,15 +29,18 @@ class TicTacToeGame {
     }
 }
 
+module.exports = TicTacToeGame;
+/*module.exports = {
+    ticTacToeGame: TicTacToeGame,
+};*/
 
-
-let ticTacToeGame = new TicTacToeGame(3, 3);
-//let gameBoard = ticTacToeGame.generateEmptyGameBoard(3, 3);
+/*
 ticTacToeGame.displayGameBoard();
 let input = "2,1";
 ticTacToeGame.updateGameBoard(input);
 console.log("\n\n");
 ticTacToeGame.displayGameBoard();
+*/
 
 
 

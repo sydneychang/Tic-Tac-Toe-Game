@@ -1,3 +1,4 @@
+let ticTacToe = require('./tic_tac_toe_game');
 const net = require('net');
 const readline = require('readline');
 const rline = readline.createInterface({
@@ -9,14 +10,15 @@ const rline = readline.createInterface({
 const client = new net.Socket();
 client.connect(2223, '127.0.0.1', function () {
     console.log('Connected');
-    let gameBoard = generateEmptyGameBoard(3, 3);
-    displayGameBoard(gameBoard);
-
-
-
-    //rline.question("Enter the coordinates.\n", (answer) => client.write(answer));
-    /*rline.on('line', (input) => {
-        client.write(input);
+    let clientBoard = new ticTacToe(3, 3);
+    clientBoard.displayGameBoard();
+    console.log("Enter the coordinates.\n");
+    rline.on('line', (input) => {
+        clientBoard.updateGameBoard(input);
+        clientBoard.displayGameBoard();
+    });
+    /*rline.question("Enter the coordinates.\n", (answer) => {
+        clientBoard.updateGameBoard(answer);
     });*/
 });
 
