@@ -16,7 +16,9 @@ client.connect(2223, '127.0.0.1', function () {
     rline.on('line', (input) => {
         clientBoard.updateGameBoard(input);
         clientBoard.displayGameBoard();
+        client.write(JSON.stringify(clientBoard));
     });
+
     /*rline.question("Enter the coordinates.\n", (answer) => {
         clientBoard.updateGameBoard(answer);
     });*/
